@@ -11,7 +11,7 @@ import { useState } from "react";
 import PrivateRoute from "./route/PrivateRoute";
 /*
 	1.전체상품페이지(대문페이지), 로그인, 상품 상세페이지
-		1-1. 네비게이션바
+	1-1. 네이게이션바
 	2. 전체상품페이지(대문페이지) -전체상품을 쭉 나열
 		2-1. 대문 상품이미지를 클릭하면 디테일 페이지가 나오게
 	3. 상품 검색기능
@@ -26,26 +26,26 @@ import PrivateRoute from "./route/PrivateRoute";
 */
 
 function App() {
-  const [authenticate, setAuthenticate] = useState(false);
-  //로그인 상태 구분(처음엔 로그인 안된 상태)
+	const [authenticate, setAuthenticate] = useState(false);
+	//로그인 상태 구분(처음엔 로그인 안된 상태)
 
-  return (
-    <>
-      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
-      <Routes>
-        <Route path="/" element={<ProductAll />} />
-        <Route
-          path="login"
-          element={<Login setAuthenticate={setAuthenticate} />}
-        />
-        <Route
-          path="product/:id"
-          element={<PrivateRoute authenticate={authenticate} />}
-        />
-        <Route />
-      </Routes>
-    </>
-  );
+	return (
+		<>
+			<Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
+			<Routes>
+				<Route path="/" element={<ProductAll />} />
+				<Route
+					path="login"
+					element={<Login setAuthenticate={setAuthenticate} />}
+				/>
+				<Route
+					path="product/:id"
+					element={<PrivateRoute authenticate={authenticate} />}
+				/>
+				<Route />
+			</Routes>
+		</>
+	);
 }
 
 export default App;
